@@ -4,7 +4,7 @@
 
     [image](https://rcn-ee.net/rootfs/bb.org/testing/2020-04-06/buster-iot/bone-emmc-flasher-debian-10.3-iot-armhf-2020-04-06-4gb.img.xz)
 
-2. copy image to sd card – do step 0 from
+2. copy image to sd card – do step 0 from link
 
     [link](<https://beagleboard.org/getting-started>)
 
