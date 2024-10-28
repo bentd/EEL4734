@@ -65,6 +65,8 @@ cd arm-linux-gnueabi/lib # contains libraries for code execution
 
 cd ~/test
 
+sudo apt-get install qemu-user -y
+
 qemu-arm -L /usr/arm-linux-gnueabi helloARM # this will work since it will emulate arm processor with the included arm libraries with the c toolchain
 
 

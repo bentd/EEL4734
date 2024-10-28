@@ -74,4 +74,37 @@ Vagrant.configure("2") do |config|
   #   apt-get update
   #   apt-get install -y apache2
   # SHELL
+  config.vm.provider "virtualbox" do |vb|
+    # Enable USB support and specify the controller type
+    vb.customize ["modifyvm", :id, "--usb", "on"]
+    vb.customize ["modifyvm", :id, "--usbxhci", "on"] # use "--usbehci" for USB 2.0, or use "--usbxhci" for USB 3.0
+    # Add USB device filter (replace values with your device’s)
+    vb.customize ["usbfilter", "add", "0",
+      "--target", :id,
+      "--name", "BeagleBone Black",               # Name for reference
+      "--vendorid", "0x1D6B",                  # Vendor ID in hexadecimal
+      "--productid", "0x0104",                 # Product ID in hexadecimal
+      # "--serialnumber", "123456789",           # Serial number (optional)
+      # "--port", "1",                           # USB port number (optional)
+      "--remote", "no"                         # "no" for local devices
+    ]
+    # Add USB device filter (replace values with your device’s)
+    vb.customize ["usbfilter", "add", "1",
+      "--target", :id,
+      "--name", "Prolific USB-Serial Controller",               # Name for reference
+      "--vendorid", "0x067B",                  # Vendor ID in hexadecimal
+      "--productid", "0x23A3",                 # Product ID in hexadecimal
+      # "--serialnumber", "123456789",           # Serial number (optional)
+      # "--port", "1",                           # USB port number (optional)
+      "--remote", "no"                         # "no" for local devices
+    ]
+  end
+
+  config.vm.provider "virtualbox" do |vb|
+    # Set the graphics controller
+    vb.customize ["modifyvm", :id, "--graphicscontroller", "VMSVGA"]
+    
+    # Optionally, set other display settings like VRAM size
+    vb.customize ["modifyvm", :id, "--vram", "128"] # Set VRAM to 128MB
+  end
 end
