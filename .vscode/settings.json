@@ -2,6 +2,10 @@
     "files.associations": {
         "*.html": "jinja-html",
         "signal.h": "c",
-        "cstdlib": "c"
-    }
+        "cstdlib": "c",
+        "iostream": "cpp"
+    },
+    "C_Cpp.default.compilerPath": "/usr/local/bin/gcc-14",
+    "ecl.launchConfiguration": "not found",
+    "ecl.targetCluster": {}
 }
